@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var xhttp = new XMLHttpRequest;
+        xhttp.onreadystatechange=function(){
+            //console.log(xhttp.readyState);
+            if (xhttp.readyState==4 && xhttp.status==200){
+
+//                xhttp.open("GET","mijson.txt");
+//                xhttp.send();
+//                console.log(xhttp.readyState);
+                console.log("Val Estatus: "+this.status);
+                console.log("Val Ready: "+this.readyState)
+                console.log(xhttp.responseText);
+                var obJson = JSON.parse(xhttp.responseText);
+                console.log(obJson);
+                console.log(obJson.nombre);
+                console.log(obJson.estudios[0]);
+            }
+            
+        };
+        xhttp.open("GET","mijson.txt");
+                xhttp.send();
+</script>
+</head>
+<body>
+    <input type="search" name="" id="">
+</body>
+</html>

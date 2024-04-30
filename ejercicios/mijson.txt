@@ -1,0 +1,10 @@
+{
+    "nombre":"Kiwar",
+    "apellido":"Tiche",
+    "edad":20,
+    "estudios": [{
+        "primaria":"Chibuleo",
+                "universidad":"UTA"
+    }]
+
+}
