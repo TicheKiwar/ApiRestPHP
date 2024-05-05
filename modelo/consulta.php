@@ -6,11 +6,23 @@ class crudS{
         include_once ("conexion.php");
         $objeto = new conexion();
         $con =$objeto->con();
-        $sqlSelect = "SELECT * FROM estudiante";
-        $resultado = $con->prepare($sqlSelect);
-        $resultado->execute();
-        $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
-        $valor = json_encode($data);
+        if (isset($_GET['cedula'])) {
+            $ced=$_GET['cedula'];
+            $sqlSelect = "SELECT * FROM estudiante WHERE cedula='$ced'";
+            $resultado = $con->prepare($sqlSelect);
+            $resultado->execute();
+            $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
+            $valor = json_encode($data);
+        }else{
+
+            $sqlSelect = "SELECT * FROM estudiante";
+            $resultado = $con->prepare($sqlSelect);
+            $resultado->execute();
+            $data=$resultado->fetchAll(PDO::FETCH_ASSOC);
+            $valor = json_encode($data);
+            
+
+        }
         print_r( $valor);
     }
 }
